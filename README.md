@@ -53,3 +53,4 @@ Welcome to my personal portfolio website! This is a fully responsive, modern, an
 git clone https://github.com/ranaIslam01/Rana-Portfolio-03.git
 cd Rana-Portfolio-03
 npm install
+npm run dev
