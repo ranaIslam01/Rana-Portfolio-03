@@ -17,24 +17,25 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Social Media Dashboard",
       description:
-        "A full-stack e-commerce solution built with MERN stack featuring user authentication, payment integration, and admin dashboard.",
+        "A responsive social media analytics dashboard with data visualization and real-time metrics tracking.",
       longDescription:
-        "This comprehensive e-commerce platform showcases my full-stack development skills. Built with React.js for the frontend, Node.js and Express.js for the backend, and MongoDB for data storage. Features include user registration and authentication, product catalog with search and filtering, shopping cart functionality, secure payment processing, order management, and an admin dashboard for inventory management.",
+        "An intuitive dashboard for social media analytics featuring interactive charts, real-time data updates, and comprehensive reporting. The application integrates with multiple social media APIs to provide unified analytics across platforms. Includes features like engagement tracking, audience insights, and automated reporting.",
       technologies: [
         "React.js",
-        "Node.js",
+        "Chart.js",
         "Express.js",
         "MongoDB",
-        "Stripe API",
-        "JWT",
+        "Social Media APIs",
       ],
-      image: "assets/ecommerce .jpg",
-      liveUrl: "https://example.com/ecommerce-demo",
-      githubUrl: "https://github.com/ranaIslam01/e-commerce",
-      status: "Live Demo",
+      image: "assets/facebook.jpg",
+      liveUrl: "https://social-media-facebook-clone-01.vercel.app/",
+      githubUrl:
+        "https://github.com/ranaIslam01/Social_Media_Facebook_Clone",
+      status: "Completed",
     },
+    
     {
       id: 2,
       title: "Task Management App",
@@ -56,24 +57,25 @@ const ProjectsSection = () => {
     },
     {
       id: 3,
-      title: "Social Media Dashboard",
+      title: "E-Commerce Platform",
       description:
-        "A responsive social media analytics dashboard with data visualization and real-time metrics tracking.",
+        "A full-stack e-commerce solution built with MERN stack featuring user authentication, payment integration, and admin dashboard.",
       longDescription:
-        "An intuitive dashboard for social media analytics featuring interactive charts, real-time data updates, and comprehensive reporting. The application integrates with multiple social media APIs to provide unified analytics across platforms. Includes features like engagement tracking, audience insights, and automated reporting.",
+        "This comprehensive e-commerce platform showcases my full-stack development skills. Built with React.js for the frontend, Node.js and Express.js for the backend, and MongoDB for data storage. Features include user registration and authentication, product catalog with search and filtering, shopping cart functionality, secure payment processing, order management, and an admin dashboard for inventory management.",
       technologies: [
         "React.js",
-        "Chart.js",
+        "Node.js",
         "Express.js",
         "MongoDB",
-        "Social Media APIs",
+        "Stripe API",
+        "JWT",
       ],
-      image: "assets/facebook.jpg",
-      liveUrl: "https://social-media-facebook-clone-01.vercel.app/",
-      githubUrl:
-        "https://github.com/ranaIslam01/Social_Media_Facebook_Clone",
-      status: "Completed",
+      image: "assets/ecommerce .jpg",
+      liveUrl: "https://example.com/ecommerce-demo",
+      githubUrl: "https://github.com/ranaIslam01/e-commerce",
+      status: "Live Demo",
     },
+    
     {
       id: 4,
       title: "Weather Forecast App",
