@@ -226,7 +226,7 @@ const HeroSection = () => {
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-5 py-2 xs:px-6 xs:py-2.5 sm:px-8 sm:py-3 text-base xs:text-lg font-semibold hover:lift transform transition-all duration-300 hover:scale-105"
             >
               <a
-                href="./dist/assets/cv_eng.pdf"
+                href="assets/cv_eng.pdf"
                 download
                 className="text-lg"
                 target="_blank"
