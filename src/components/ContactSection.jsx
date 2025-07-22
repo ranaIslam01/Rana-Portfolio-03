@@ -319,7 +319,7 @@ const ContactSection = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-muted-foreground">
-              © 20254972937 Rana Islam. Built with React.js, Tailwind CSS, and lots of
+              © 2025 Rana Islam. Built with React.js, Tailwind CSS, and lots of
               ☕
             </p>
           </div>
