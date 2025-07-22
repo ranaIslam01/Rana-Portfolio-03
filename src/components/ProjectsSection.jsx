@@ -6,20 +6,12 @@ import { ExternalLink, Github, Plus } from "lucide-react";
 const ProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // Helper function to determine the correct image source
+  // Image path fixer
   const getImageSrc = (imagePath) => {
-    // যদি imagePath একটি API placeholder হয়, সেটি সরাসরি ব্যবহার করুন
-    if (imagePath.startsWith("/api/placeholder")) {
-      return imagePath;
-    }
-    // যদি imagePath 'dist/assets/' দিয়ে শুরু হয় (যেমন "dist/assets/image.png"),
-    // তাহলে ব্রাউজার রুট থেকে অ্যাক্সেস করার জন্য একটি স্লাশ (/) যোগ করুন।
-    // এটা ধরে নিচ্ছে যে dist ফোল্ডারের কন্টেন্ট সার্ভারের রুট থেকে পরিবেশিত হচ্ছে।
-    else if (imagePath.startsWith("dist/assets/")) {
+    if (imagePath.startsWith("assets/")) {
       return `/${imagePath}`;
     }
-    // অন্য কোনো কাস্টম লজিক বা ফলব্যাক (যদি থাকে)
-    return imagePath;
+    return imagePath.startsWith("/") ? imagePath : `/${imagePath}`;
   };
 
   const projects = [
@@ -38,7 +30,7 @@ const ProjectsSection = () => {
         "Stripe API",
         "JWT",
       ],
-      image: "dist/assets/ecommerce.jpg", // এই প্রজেক্টের জন্য প্লেসহোল্ডার ইমেজ
+      image: "assets/ecommerce .jpg",
       liveUrl: "https://example.com/ecommerce-demo",
       githubUrl: "https://github.com/ranaIslam01/e-commerce",
       status: "Live Demo",
@@ -57,7 +49,7 @@ const ProjectsSection = () => {
         "MongoDB",
         "Material-UI",
       ],
-      image: "dist/assets/Task management app.png", // এই প্রজেক্টের জন্য প্লেসহোল্ডার ইমেজ
+      image: "assets/Task management app.png",
       liveUrl: "https://example.com/task-app-demo",
       githubUrl: "https://github.com/ranaIslam01/task-management-app",
       status: "In Progress",
@@ -76,9 +68,10 @@ const ProjectsSection = () => {
         "MongoDB",
         "Social Media APIs",
       ],
-      image: "dist/assets/facebook.jpg", // আপনার image.png এর পাথ
+      image: "assets/facebook.jpg",
       liveUrl: "https://social-media-facebook-clone-01.vercel.app/",
-      githubUrl: "https://github.com/ranaIslam01/Social_Media_Facebook_Clone",
+      githubUrl:
+        "https://github.com/ranaIslam01/Social_Media_Facebook_Clone",
       status: "Completed",
     },
     {
@@ -89,7 +82,7 @@ const ProjectsSection = () => {
       longDescription:
         "A comprehensive weather application that provides accurate forecasts and weather analytics. Features include current weather conditions, 7-day forecasts, interactive weather maps, location-based services, weather alerts, and historical weather data. The app uses modern design principles and smooth animations for an engaging user experience.",
       technologies: ["React.js", "Weather API", "Geolocation API", "Chart.js"],
-      image: "dist/assets/Weather Forecast App.jpg", // এই প্রজেক্টের জন্য প্লেসহোল্ডার ইমেজ
+      image: "assets/Weather Forecast App.jpg",
       liveUrl: "https://example.com/weather-app-demo",
       githubUrl: "https://github.com/ranaIslam01/weather-forecast-app",
       status: "Live Demo",
@@ -130,23 +123,19 @@ const ProjectsSection = () => {
                 className="glassmorphism dark:glassmorphism-dark rounded-xl overflow-hidden hover-lift group cursor-pointer"
                 onClick={() => openProjectModal(project)}
               >
-                {/* Project Image Display */}
                 <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  {project.image && (
+                  {project.image ? (
                     <img
                       src={getImageSrc(project.image)}
-                      alt={project.title || "Project Image"}
+                      alt={project.title}
                       className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105 rounded-b-none"
                       loading="lazy"
                     />
-                  )}
-                  {/* যদি project.image না থাকে বা লোড না হয়, তাহলে Plus আইকন দেখাবে */}
-                  {!project.image && (
+                  ) : (
                     <div className="text-6xl text-primary/30">
                       <Plus />
                     </div>
                   )}
-
                   <div className="absolute top-4 right-4">
                     <Badge variant="secondary" className="text-xs">
                       {project.status}
@@ -154,7 +143,6 @@ const ProjectsSection = () => {
                   </div>
                 </div>
 
-                {/* Project Content */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                     {project.title}
@@ -163,7 +151,6 @@ const ProjectsSection = () => {
                     {project.description}
                   </p>
 
-                  {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 3).map((tech, index) => (
                       <Badge key={index} variant="outline" className="text-xs">
@@ -177,7 +164,6 @@ const ProjectsSection = () => {
                     )}
                   </div>
 
-                  {/* Action Buttons */}
                   <div className="flex space-x-2">
                     <Button
                       variant="outline"
@@ -245,7 +231,6 @@ const ProjectsSection = () => {
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="glassmorphism dark:glassmorphism-dark max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl">
             <div className="p-6 bg-white/80 dark:bg-[#232946]/90 rounded-2xl shadow-xl">
-              {/* Modal Header */}
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h3 className="text-2xl font-bold text-primary dark:text-primary mb-2">
@@ -268,31 +253,25 @@ const ProjectsSection = () => {
                 </Button>
               </div>
 
-              {/* Project Image in Modal */}
               <div className="w-full aspect-[16/9] bg-gradient-to-br from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 rounded-lg mb-6 flex items-center justify-center">
-                {/* মোডালের ছবির জন্য getImageSrc ফাংশন ব্যবহার করা হয়েছে */}
-                {selectedProject.image && (
+                {selectedProject.image ? (
                   <img
                     src={getImageSrc(selectedProject.image)}
-                    alt={selectedProject.title || "Project Image"}
+                    alt={selectedProject.title}
                     className="w-full h-full object-cover object-center rounded-lg"
                     loading="lazy"
                   />
-                )}
-                {/* যদি selectedProject.image না থাকে বা লোড না হয়, তাহলে Plus আইকন দেখাবে */}
-                {!selectedProject.image && (
+                ) : (
                   <div className="text-8xl text-primary/30">
                     <Plus />
                   </div>
                 )}
               </div>
 
-              {/* Project Description */}
               <p className="text-foreground dark:text-gray-200 mb-6 leading-relaxed">
                 {selectedProject.longDescription}
               </p>
 
-              {/* Technologies */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold mb-3 text-primary dark:text-primary">
                   Technologies Used
@@ -306,11 +285,12 @@ const ProjectsSection = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex space-x-4">
                 <Button
                   className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => window.open(selectedProject.liveUrl, "_blank")}
+                  onClick={() =>
+                    window.open(selectedProject.liveUrl, "_blank")
+                  }
                   disabled={selectedProject.liveUrl === "#"}
                 >
                   <ExternalLink className="mr-2" size={16} />
