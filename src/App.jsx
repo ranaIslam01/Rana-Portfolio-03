@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import './App.css'
-import { ThemeProvider } from './components/ThemeProvider'
-import SimplePreloader from './components/SimplePreloader'
-import HeroSection from './components/HeroSection'
-import AboutSection from './components/AboutSection'
-import SkillsSection from './components/SkillsSection'
-import ProjectsSection from './components/ProjectsSection'
-import TestimonialsSection from './components/TestimonialsSection'
-import ContactSection from './components/ContactSection'
-import Navigation from './components/Navigation'
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import { ThemeProvider } from "./components/ThemeProvider";
+import SimplePreloader from "./components/SimplePreloader";
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import SkillsSection from "./components/SkillsSection";
+import ProjectsSection from "./components/ProjectsSection";
+import TestimonialsSection from "./components/TestimonialsSection";
+import ContactSection from "./components/ContactSection";
+import Navigation from "./components/Navigation";
 
 function App() {
-  const [showPreloader, setShowPreloader] = useState(true);
+  // Preloader disabled by default. Set to true to enable.
+  const [showPreloader, setShowPreloader] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <ThemeProvider>
+      {/* Preloader is disabled. To enable, set showPreloader to true above. */}
       {showPreloader && isLoaded && (
         <SimplePreloader onComplete={handlePreloaderComplete} />
       )}
@@ -44,8 +46,7 @@ function App() {
         </main>
       </div>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
-
+export default App;

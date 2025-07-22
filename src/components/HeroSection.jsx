@@ -173,7 +173,7 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-2 sm:px-4 text-center">
+      <div className="relative z-10 container mx-auto px-2 sm:px-4 text-center -mt-14">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image */}
           <div className="mb-4 sm:mb-8 flex justify-center animate-fade-in">
@@ -193,7 +193,7 @@ const HeroSection = () => {
           <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6">
             Hi, I'm{" "}
             <span className="text-gradient">
-              <AnimatedText text="Rana Islam" delay={500} />
+              <AnimatedText text="Rana Islam" delay={20} />
             </span>
           </h1>
 
