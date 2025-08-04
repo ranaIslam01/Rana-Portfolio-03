@@ -37,6 +37,26 @@ const ProjectsSection = () => {
     },
     
     {
+      id: 3,
+      title: "E-Commerce Platform",
+      description:
+        "A full-stack e-commerce solution built with MERN stack featuring user authentication, payment integration, and admin dashboard.",
+      longDescription:
+        "This comprehensive e-commerce platform showcases my full-stack development skills. Built with React.js for the frontend, Node.js and Express.js for the backend, and MongoDB for data storage. Features include user registration and authentication, product catalog with search and filtering, shopping cart functionality, secure payment processing, order management, and an admin dashboard for inventory management.",
+      technologies: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Stripe API",
+        "JWT",
+      ],
+      image: "assets/ecommerce .jpg",
+      liveUrl: "https://ecommerce-rana-islam.vercel.app/",
+      githubUrl: "https://github.com/ranaIslam01/e-commerce-website",
+      status: "Live Demo",
+    },
+     {
       id: 2,
       title: "Task Management App",
       description:
@@ -55,27 +75,6 @@ const ProjectsSection = () => {
       githubUrl: "https://github.com/ranaIslam01/task-management-app",
       status: "In Progress",
     },
-    {
-      id: 3,
-      title: "E-Commerce Platform",
-      description:
-        "A full-stack e-commerce solution built with MERN stack featuring user authentication, payment integration, and admin dashboard.",
-      longDescription:
-        "This comprehensive e-commerce platform showcases my full-stack development skills. Built with React.js for the frontend, Node.js and Express.js for the backend, and MongoDB for data storage. Features include user registration and authentication, product catalog with search and filtering, shopping cart functionality, secure payment processing, order management, and an admin dashboard for inventory management.",
-      technologies: [
-        "React.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Stripe API",
-        "JWT",
-      ],
-      image: "assets/ecommerce .jpg",
-      liveUrl: "https://example.com/ecommerce-demo",
-      githubUrl: "https://github.com/ranaIslam01/e-commerce",
-      status: "Live Demo",
-    },
-    
     {
       id: 4,
       title: "Weather Forecast App",
