@@ -9,11 +9,15 @@ import ProjectsSection from "./components/ProjectsSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import ContactSection from "./components/ContactSection";
 import Navigation from "./components/Navigation";
+import { useScrollAnimation } from "./hooks/useScrollAnimation";
 
 function App() {
   // Preloader disabled by default. Set to true to enable.
   const [showPreloader, setShowPreloader] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // Initialize scroll animations
+  useScrollAnimation();
 
   useEffect(() => {
     // Simulate content loading
