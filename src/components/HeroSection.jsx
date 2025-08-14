@@ -176,8 +176,8 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-2 sm:px-4 text-center -mt-14">
         <div className="max-w-4xl mx-auto">
           {/* Profile Image */}
-          <div className="mb-4 sm:mb-8 flex justify-center animate-fade-in">
-            <div className="relative">
+          <div className="mb-4 sm:mb-8 flex justify-center">
+            <div className="relative anim-on-scroll" data-animation="scale">
               <img
                 src={profileImage}
                 alt="Rana Islam"
@@ -190,7 +190,7 @@ const HeroSection = () => {
           </div>
 
           {/* Main Heading with Animated Text */}
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 anim-on-scroll" data-animation="fade-up" data-delay="0.2">
             Hi, I'm{" "}
             <span className="text-gradient">
               <AnimatedText text="Rana Islam" delay={20} />
@@ -198,12 +198,12 @@ const HeroSection = () => {
           </h1>
 
           {/* Subtitle with Animation */}
-          <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-4 sm:mb-8">
+          <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-4 sm:mb-8 anim-on-scroll" data-animation="fade-up" data-delay="0.4">
             MERN Stack Developer & Student
           </h2>
 
           {/* Description */}
-          <div className="text-sm xs:text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-12 max-w-md sm:max-w-2xl mx-auto leading-relaxed opacity-0 animate-fade-in-delay-3">
+          <div className="text-sm xs:text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-12 max-w-md sm:max-w-2xl mx-auto leading-relaxed anim-on-scroll" data-animation="fade-up" data-delay="0.6">
             A passionate MERN stack developer and a student with a strong desire
             to create beautiful, interactive, and high-performance web
             applications. I am always eager to learn new technologies and apply
@@ -211,7 +211,7 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center mb-8 sm:mb-16 opacity-0 animate-fade-in-delay-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center items-center mb-8 sm:mb-16 anim-on-scroll" data-animation="fade-up" data-delay="0.8">
             <Button
               size="lg"
               onClick={scrollToContact}
@@ -238,7 +238,7 @@ const HeroSection = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center space-x-3 sm:space-x-6 mb-8 sm:mb-16 opacity-0 animate-fade-in-delay-5">
+          <div className="flex justify-center space-x-3 sm:space-x-6 mb-8 sm:mb-16 anim-on-scroll" data-animation="fade-up" data-delay="1.0">
             <Button
               variant="ghost"
               size="icon"
@@ -314,7 +314,7 @@ const HeroSection = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="animate-bounce opacity-0 animate-fade-in-delay-6 mt-2">
+          <div className="animate-bounce mt-2 anim-on-scroll" data-animation="fade-up" data-delay="1.2">
             <Button
               variant="ghost"
               size="icon"
