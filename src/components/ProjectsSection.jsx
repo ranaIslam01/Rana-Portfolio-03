@@ -107,10 +107,10 @@ const ProjectsSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 anim-on-scroll" data-animation="fade-up">
               My <span className="text-gradient">Projects</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto anim-on-scroll" data-animation="fade-up" data-delay="0.2">
               A showcase of my development work and technical expertise through
               various projects
             </p>
@@ -118,10 +118,12 @@ const ProjectsSection = () => {
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <div
                 key={project.id}
-                className="glassmorphism dark:glassmorphism-dark rounded-xl overflow-hidden hover-lift group cursor-pointer"
+                className="glassmorphism dark:glassmorphism-dark rounded-xl overflow-hidden hover-lift group cursor-pointer anim-on-scroll"
+                data-animation={index % 2 === 0 ? "fade-left" : "fade-right"}
+                data-delay={0.2 * index}
                 onClick={() => openProjectModal(project)}
               >
                 <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
