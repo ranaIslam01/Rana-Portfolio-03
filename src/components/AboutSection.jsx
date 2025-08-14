@@ -34,10 +34,10 @@ const AboutSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 anim-on-scroll" data-animation="fade-up">
               About <span className="text-gradient">Me</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto anim-on-scroll" data-animation="fade-up" data-delay="0.2">
               Get to know more about my journey, passion, and what drives me as
               a developer
             </p>
@@ -47,11 +47,11 @@ const AboutSection = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Bio Content */}
             <div className="space-y-6 lg:col-span-2">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground anim-on-scroll" data-animation="fade-left">
                 My Journey as a Developer
               </h3>
 
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-muted-foreground leading-relaxed anim-on-scroll" data-animation="fade-right" data-delay="0.3">
                 <p>
                   I am Rana Islam, an enthusiastic MERN stack developer and
                   student. I believe in the power of turning ideas into reality
@@ -72,7 +72,7 @@ const AboutSection = () => {
               {/* Education */}
               {content.education && content.education.length > 0 && (
                 <div className="space-y-4">
-                  <h4 className="text-xl font-semibold text-foreground mt-8 mb-4">
+                  <h4 className="text-xl font-semibold text-foreground mt-8 mb-4 anim-on-scroll" data-animation="fade-up">
                     Education
                   </h4>
                   {content.education.map((edu, index) => (
@@ -92,7 +92,7 @@ const AboutSection = () => {
               )}
 
               {/* Contact Info */}
-              <div className="space-y-2 text-sm">
+              <div className="space-y-2 text-sm anim-on-scroll" data-animation="fade-left" data-delay="0.2">
                 <p>
                   <span className="font-semibold">Email:</span>{" "}
                   {content.contact.email.join(", ")}
@@ -110,7 +110,9 @@ const AboutSection = () => {
               {/* Download Resume Button */}
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground hover-lift"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground hover-lift anim-on-scroll"
+                data-animation="scale"
+                data-delay="0.4"
               >
                 <Download className="mr-2" size={20} />
                 Download Resume
@@ -123,7 +125,9 @@ const AboutSection = () => {
             {highlights.map((highlight, index) => (
               <div
                 key={index}
-                className="glassmorphism p-6 rounded-xl hover-lift text-center"
+                className="glassmorphism p-6 rounded-xl hover-lift text-center anim-on-scroll"
+                data-animation="fade-up"
+                data-delay={0.1 * index}
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4 text-primary">
                   {highlight.icon}
