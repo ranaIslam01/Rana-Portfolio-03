@@ -103,48 +103,57 @@ const Navigation = () => {
              style={{ width: `${scrollProgress}%` }}
         />
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 flex items-center justify-between min-h-[52px] sm:min-h-[56px]">
-          {/* Logo with reload functionality */}
+          {/* Enhanced Logo */}
           <button
-            className="min-w-0 truncate text-lg xs:text-xl sm:text-2xl font-bold text-gradient select-none focus:outline-none"
-            onClick={() => window.location.reload()}
-            title="Reload Page"
+            className="group min-w-0 truncate text-lg xs:text-xl sm:text-2xl lg:text-3xl font-bold text-gradient select-none focus:outline-none transition-all duration-300 hover:scale-105"
+            onClick={() => scrollToSection('#hero')}
+            title="Go to Home"
           >
-            Rana Islam
+            <span className="relative">
+              Rana Islam
+              <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></div>
+            </span>
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2 xl:space-x-3">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
               return (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`relative text-sm lg:text-base font-medium px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
+                  className={`relative text-sm lg:text-base xl:text-lg font-medium px-2 lg:px-3 xl:px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 group ${
                     isActive
-                      ? 'text-primary bg-primary/10 shadow-lg'
+                      ? 'text-primary bg-primary/10 shadow-lg ring-1 ring-primary/20'
                       : 'text-foreground hover:text-primary hover:bg-primary/5'
                   }`}
                 >
-                  {item.name}
+                  <span className="relative z-10">{item.name}</span>
                   {isActive && (
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary rounded-full" />
+                    <>
+                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
+                      <div className="absolute inset-0 bg-primary/5 rounded-full animate-pulse" />
+                    </>
+                  )}
+                  {!isActive && (
+                    <div className="absolute inset-0 bg-primary/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   )}
                 </button>
               );
             })}
-            <div className="ml-2">
+            <div className="ml-2 lg:ml-3">
               <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile Menu Controls */}
-          <div className="md:hidden flex items-center space-x-1 xs:space-x-2">
+          <div className="md:hidden flex items-center space-x-2 xs:space-x-3">
             <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
-              className="mobile-menu-container relative animate-fade-in duration-300 focus:outline-none focus:ring-2 focus:ring-primary/60 shadow-lg bg-white/90 dark:bg-background/90 backdrop-blur-md border border-primary/20 hover:scale-110 hover:shadow-xl transition-all"
+              className="mobile-menu-container relative animate-fade-in duration-300 focus:outline-none focus:ring-2 focus:ring-primary/60 shadow-lg bg-white/90 dark:bg-background/90 backdrop-blur-md border border-primary/20 hover:scale-110 hover:shadow-xl transition-all w-10 h-10 xs:w-11 xs:h-11"
               style={{ borderRadius: "50%" }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -153,9 +162,9 @@ const Navigation = () => {
                 isMobileMenuOpen ? 'rotate-180 scale-90' : 'rotate-0 scale-100'
               }`}>
                 {isMobileMenuOpen ? (
-                  <X size={22} className="text-foreground" />
+                  <X size={20} className="text-foreground" />
                 ) : (
-                  <Menu size={22} className="text-foreground" />
+                  <Menu size={20} className="text-foreground" />
                 )}
               </span>
             </Button>
