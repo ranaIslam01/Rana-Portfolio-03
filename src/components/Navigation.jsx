@@ -98,6 +98,10 @@ const Navigation = () => {
         role="navigation"
         aria-label="Main Navigation"
       >
+        {/* Scroll Progress Bar */}
+        <div className="absolute top-0 left-0 h-1 bg-gradient-to-r from-primary via-primary/80 to-secondary transition-all duration-300 ease-out z-10"
+             style={{ width: `${scrollProgress}%` }}
+        />
         <div className="container mx-auto px-2 sm:px-4 flex items-center justify-between min-h-[48px]">
           {/* Logo with reload functionality */}
           <button
@@ -109,17 +113,29 @@ const Navigation = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-sm lg:text-base text-foreground hover:text-primary transition-colors duration-200 font-medium px-1 lg:px-2"
-              >
-                {item.name}
-              </button>
-            ))}
-            <ThemeToggle />
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`relative text-sm lg:text-base font-medium px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
+                    isActive
+                      ? 'text-primary bg-primary/10 shadow-lg'
+                      : 'text-foreground hover:text-primary hover:bg-primary/5'
+                  }`}
+                >
+                  {item.name}
+                  {isActive && (
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary rounded-full" />
+                  )}
+                </button>
+              );
+            })}
+            <div className="ml-2">
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Controls */}
