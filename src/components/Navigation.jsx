@@ -1,19 +1,52 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronUp } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-      setShowScrollTop(window.scrollY > 300);
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Update scroll states
+      setIsScrolled(scrollY > 50);
+      setShowScrollTop(scrollY > 300);
+
+      // Calculate scroll progress
+      const progress = (scrollY / (documentHeight - windowHeight)) * 100;
+      setScrollProgress(Math.min(progress, 100));
+
+      // Find active section
+      const sections = navItems.map(item => item.href.slice(1));
+      let currentSection = 'hero';
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const offset = 100; // Offset for better UX
+
+          if (rect.top <= offset && rect.bottom >= offset) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
     };
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call once to set initial state
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
