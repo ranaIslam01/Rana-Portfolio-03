@@ -63,17 +63,17 @@ const SkillsSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 anim-on-scroll" data-animation="fade-up">
               My <span className="text-gradient">Skills</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto anim-on-scroll" data-animation="fade-up" data-delay="0.2">
               A comprehensive overview of my technical expertise and proficiency
               levels
             </p>
           </div>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-4 mb-12 anim-on-scroll" data-animation="fade-up" data-delay="0.4">
             {categories.map((category) => (
               <button
                 key={category}
@@ -94,7 +94,9 @@ const SkillsSection = () => {
             {skillsData[activeCategory].map((skill, index) => (
               <div
                 key={index}
-                className="glassmorphism p-6 rounded-xl hover-lift group"
+                className="glassmorphism p-6 rounded-xl hover-lift group anim-on-scroll"
+                data-animation="fade-up"
+                data-delay={0.1 * index}
               >
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
@@ -123,11 +125,11 @@ const SkillsSection = () => {
 
           {/* MERN Stack Highlight */}
           <div className="mt-16 text-center">
-            <div className="glassmorphism p-8 rounded-2xl max-w-4xl mx-auto">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gradient">
+            <div className="glassmorphism p-8 rounded-2xl max-w-4xl mx-auto anim-on-scroll" data-animation="scale" data-delay="0.3">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gradient anim-on-scroll" data-animation="fade-up">
                 MERN Stack Expertise
               </h3>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed anim-on-scroll" data-animation="fade-up" data-delay="0.2">
                 Specialized in full-stack development using MongoDB, Express.js,
                 React.js, and Node.js. I create end-to-end web applications with
                 modern architecture, responsive design, and optimal performance.
@@ -139,7 +141,9 @@ const SkillsSection = () => {
                   (tech, index) => (
                     <div
                       key={index}
-                      className="flex flex-col items-center space-y-2 hover-lift"
+                      className="flex flex-col items-center space-y-2 hover-lift anim-on-scroll"
+                      data-animation="fade-up"
+                      data-delay={0.1 * index + 0.4}
                     >
                       <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                         <span className="text-2xl font-bold text-primary">

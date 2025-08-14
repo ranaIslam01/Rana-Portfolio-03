@@ -110,10 +110,10 @@ const ContactSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 anim-on-scroll" data-animation="fade-up">
               Get In <span className="text-gradient">Touch</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto anim-on-scroll" data-animation="fade-up" data-delay="0.2">
               Ready to start your next project? Let's discuss how we can work
               together to bring your ideas to life.
             </p>
@@ -122,7 +122,7 @@ const ContactSection = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div className="space-y-8">
-              <div>
+              <div className="anim-on-scroll" data-animation="fade-left">
                 <h3 className="text-2xl font-bold mb-6 text-foreground">
                   Let's Start a Conversation
                 </h3>
@@ -139,7 +139,9 @@ const ContactSection = () => {
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
-                    className="glassmorphism p-6 rounded-xl hover-lift"
+                    className="glassmorphism p-6 rounded-xl hover-lift anim-on-scroll"
+                    data-animation="fade-left"
+                    data-delay={0.2 * (index + 1)}
                   >
                     <div className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary flex-shrink-0">
@@ -172,7 +174,7 @@ const ContactSection = () => {
               </div>
 
               {/* Social Media Links */}
-              <div className="glassmorphism p-6 rounded-xl">
+              <div className="glassmorphism p-6 rounded-xl anim-on-scroll" data-animation="fade-left" data-delay="0.8">
                 <h4 className="text-lg font-semibold text-foreground mb-4">
                   Connect on Social Media
                 </h4>
@@ -201,7 +203,7 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="glassmorphism p-8 rounded-2xl">
+            <div className="glassmorphism p-8 rounded-2xl anim-on-scroll" data-animation="fade-right">
               <h3 className="text-2xl font-bold mb-6 text-foreground">
                 Send Me a Message
               </h3>

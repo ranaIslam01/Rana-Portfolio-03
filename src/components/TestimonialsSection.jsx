@@ -76,17 +76,17 @@ const TestimonialsSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 anim-on-scroll" data-animation="fade-up">
               Client <span className="text-gradient">Testimonials</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto anim-on-scroll" data-animation="fade-up" data-delay="0.2">
               What clients and collaborators say about working with me
             </p>
           </div>
 
           {/* Testimonials Carousel */}
           <div className="relative max-w-4xl mx-auto">
-            <div className="glassmorphism p-8 md:p-12 rounded-2xl">
+            <div className="glassmorphism p-8 md:p-12 rounded-2xl anim-on-scroll" data-animation="scale" data-delay="0.4">
               {/* Quote Icon */}
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
@@ -128,7 +128,7 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex justify-center space-x-4 mt-8">
+            <div className="flex justify-center space-x-4 mt-8 anim-on-scroll" data-animation="fade-up" data-delay="0.6">
               <Button
                 variant="outline"
                 size="icon"
