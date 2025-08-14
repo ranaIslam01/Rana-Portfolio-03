@@ -102,7 +102,7 @@ const Navigation = () => {
         <div className="absolute top-0 left-0 h-1 bg-gradient-to-r from-primary via-primary/80 to-secondary transition-all duration-300 ease-out z-10"
              style={{ width: `${scrollProgress}%` }}
         />
-        <div className="container mx-auto px-2 sm:px-4 flex items-center justify-between min-h-[48px]">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 flex items-center justify-between min-h-[52px] sm:min-h-[56px]">
           {/* Logo with reload functionality */}
           <button
             className="min-w-0 truncate text-lg xs:text-xl sm:text-2xl font-bold text-gradient select-none focus:outline-none"
@@ -229,33 +229,54 @@ const Navigation = () => {
         />
       </nav>
 
-      {/* Scroll to Top Button */}
-      <button
-        className={`fixed bottom-6 right-6 z-40 bg-primary text-white rounded-full shadow-lg p-3 transition-all duration-500 ease-in-out ${
+      {/* Enhanced Scroll to Top Button with Progress Circle */}
+      <div
+        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 transition-all duration-500 ease-in-out ${
           showScrollTop
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        } hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/60`}
-        style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.15)" }}
-        aria-label="Scroll to Top"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            ? "opacity-100 translate-y-0 scale-100"
+            : "opacity-0 translate-y-8 scale-90 pointer-events-none"
+        }`}
       >
+        {/* Progress Circle */}
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
+          className="absolute inset-0 w-12 h-12 sm:w-14 sm:h-14 transform -rotate-90"
+          viewBox="0 0 50 50"
         >
-          <path
-            stroke="white"
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke="currentColor"
             strokeWidth="2"
+            className="text-muted-foreground/30"
+          />
+          <circle
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
             strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 19V5M5 12l7-7 7 7"
+            className="text-primary"
+            style={{
+              strokeDasharray: `${2 * Math.PI * 20}`,
+              strokeDashoffset: `${2 * Math.PI * 20 * (1 - scrollProgress / 100)}`,
+              transition: 'stroke-dashoffset 0.3s ease'
+            }}
           />
         </svg>
-      </button>
+
+        {/* Button */}
+        <button
+          className="relative w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary to-primary/80 text-white rounded-full shadow-xl hover:shadow-2xl transform hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/60 backdrop-blur-sm"
+          aria-label="Scroll to Top"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 mx-auto" />
+        </button>
+      </div>
     </>
   );
 };
