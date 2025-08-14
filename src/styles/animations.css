@@ -1,0 +1,92 @@
+/* GSAP ScrollTrigger Animation Styles */
+
+/* Base animation classes */
+.anim-on-scroll {
+  will-change: transform, opacity;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animation helpers */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Stagger animation containers */
+.stagger-container > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Improved hover effects for animated elements */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Performance optimizations */
+.anim-on-scroll,
+.hover-lift {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Reduce animations on mobile if preferred */
+@media (prefers-reduced-motion: reduce) {
+  .anim-on-scroll {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .hover-lift {
+    transform: none !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Loading state for animations */
+.gsap-loading .anim-on-scroll {
+  opacity: 0;
+}
+
+/* Custom easings for better animation feel */
+.ease-bounce {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.ease-elastic {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
