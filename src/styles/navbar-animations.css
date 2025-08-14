@@ -1,0 +1,189 @@
+/* Enhanced Navbar Animation Styles */
+
+/* Fade in up animation for mobile menu items */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Glassmorphism enhancement */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glassmorphism {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Smooth hover effects */
+.nav-item-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.nav-item-hover:hover::before {
+  left: 100%;
+}
+
+/* Mobile menu backdrop blur enhancement */
+.mobile-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Scroll progress bar glow effect */
+.progress-bar-glow {
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+/* Active navigation indicator pulse */
+@keyframes active-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.active-indicator {
+  animation: active-pulse 2s ease-in-out infinite;
+}
+
+/* Enhanced button press effect */
+.press-effect {
+  transition: all 0.1s ease;
+}
+
+.press-effect:active {
+  transform: scale(0.95);
+}
+
+/* Smooth logo underline animation */
+.logo-underline {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.logo-underline:hover::after {
+  width: 100%;
+}
+
+/* Enhanced mobile menu slide */
+.mobile-menu-slide {
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-slide.open {
+  transform: translateY(0);
+}
+
+/* Responsive text scaling */
+@media (max-width: 640px) {
+  .text-gradient {
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .text-gradient {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+  }
+}
+
+@media (min-width: 1025px) {
+  .text-gradient {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+  }
+}
+
+/* Navigation item focus states for accessibility */
+.nav-button:focus {
+  outline: 2px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
+}
+
+/* Enhanced scroll button animation */
+.scroll-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress circle animation */
+.progress-circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Mobile menu item stagger delay */
+.mobile-nav-item-1 { animation-delay: 0.1s; }
+.mobile-nav-item-2 { animation-delay: 0.15s; }
+.mobile-nav-item-3 { animation-delay: 0.2s; }
+.mobile-nav-item-4 { animation-delay: 0.25s; }
+.mobile-nav-item-5 { animation-delay: 0.3s; }
+.mobile-nav-item-6 { animation-delay: 0.35s; }
