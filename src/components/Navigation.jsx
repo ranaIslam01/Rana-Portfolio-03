@@ -144,16 +144,18 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="mobile-menu-container relative animate-fade-in duration-300 focus:outline-none focus:ring-2 focus:ring-primary/60 shadow-md bg-white/80 dark:bg-background/80 backdrop-blur-md border border-primary/20 hover:scale-110 hover:shadow-lg transition-all"
+              className="mobile-menu-container relative animate-fade-in duration-300 focus:outline-none focus:ring-2 focus:ring-primary/60 shadow-lg bg-white/90 dark:bg-background/90 backdrop-blur-md border border-primary/20 hover:scale-110 hover:shadow-xl transition-all"
               style={{ borderRadius: "50%" }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
-              <span className="transition-transform duration-300 ease-in-out">
+              <span className={`transition-all duration-500 ease-in-out transform ${
+                isMobileMenuOpen ? 'rotate-180 scale-90' : 'rotate-0 scale-100'
+              }`}>
                 {isMobileMenuOpen ? (
-                  <X size={24} className="text-foreground" />
+                  <X size={22} className="text-foreground" />
                 ) : (
-                  <Menu size={24} className="text-foreground" />
+                  <Menu size={22} className="text-foreground" />
                 )}
               </span>
             </Button>
@@ -162,38 +164,69 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden mobile-menu-container fixed top-0 left-0 w-full h-full transition-all duration-300 ease-in-out z-50 flex flex-col items-center ${
+          className={`md:hidden mobile-menu-container fixed top-0 left-0 w-full h-full transition-all duration-500 ease-out z-50 flex flex-col items-center ${
             isMobileMenuOpen
-              ? "opacity-100 translate-y-0 pointer-events-auto"
-              : "opacity-0 -translate-y-4 pointer-events-none"
+              ? "opacity-100 translate-y-0 pointer-events-auto backdrop-blur-lg"
+              : "opacity-0 -translate-y-8 pointer-events-none"
           }`}
           aria-hidden={!isMobileMenuOpen}
         >
-          <div className="w-full flex-1 flex flex-col justify-center items-center">
-            <div className="glassmorphism mt-20 mx-2 xs:mx-4 rounded-lg p-2 xs:p-4 shadow-lg w-full max-w-xs">
-              <div className="flex flex-col space-y-1 xs:space-y-2">
-                {navItems.map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.href)}
-                    className="text-left text-sm xs:text-base text-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200 font-medium py-2 xs:py-3 px-3 xs:px-4 rounded-lg w-full"
-                  >
-                    {item.name}
-                  </button>
-                ))}
+          <div className="w-full flex-1 flex flex-col justify-center items-center px-4">
+            <div className={`glassmorphism mt-16 rounded-2xl p-4 xs:p-6 shadow-2xl w-full max-w-sm transform transition-all duration-700 ease-out ${
+              isMobileMenuOpen ? 'scale-100 translate-y-0' : 'scale-95 translate-y-4'
+            }`}>
+              {/* Mobile Progress Indicator */}
+              <div className="mb-4 p-2 glassmorphism rounded-xl">
+                <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
+                  <span>Scroll Progress</span>
+                  <span>{Math.round(scrollProgress)}%</span>
+                </div>
+                <div className="h-2 bg-muted rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-300"
+                    style={{ width: `${scrollProgress}%` }}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col space-y-1">
+                {navItems.map((item, index) => {
+                  const isActive = activeSection === item.href.slice(1);
+                  return (
+                    <button
+                      key={item.name}
+                      onClick={() => scrollToSection(item.href)}
+                      className={`text-left text-sm xs:text-base font-medium py-3 px-4 rounded-xl w-full transition-all duration-300 transform hover:scale-105 ${
+                        isActive
+                          ? 'text-primary bg-primary/15 shadow-md border border-primary/20'
+                          : 'text-foreground hover:text-primary hover:bg-primary/8'
+                      } ${isMobileMenuOpen ? `animate-fade-in-up` : ''}`}
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{item.name}</span>
+                        {isActive && (
+                          <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
         </div>
 
         {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div
-            className="md:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
-            aria-hidden="true"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        )}
+        <div
+          className={`md:hidden fixed inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60 backdrop-blur-sm z-40 transition-all duration-500 ${
+            isMobileMenuOpen
+              ? 'opacity-100 pointer-events-auto'
+              : 'opacity-0 pointer-events-none'
+          }`}
+          aria-hidden="true"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
       </nav>
 
       {/* Scroll to Top Button */}
