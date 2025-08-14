@@ -203,7 +203,7 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="glassmorphism p-8 rounded-2xl">
+            <div className="glassmorphism p-8 rounded-2xl anim-on-scroll" data-animation="fade-right">
               <h3 className="text-2xl font-bold mb-6 text-foreground">
                 Send Me a Message
               </h3>
